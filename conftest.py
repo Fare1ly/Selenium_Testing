@@ -24,12 +24,6 @@ def browser():
     driver.quit()
 
 @pytest.fixture
-def browser():
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-    yield driver
-    driver.quit()
-
-@pytest.fixture
 def login(browser, base_url, test_user):
     browser.get(base_url)
     login_button(browser, test_user["email"])
